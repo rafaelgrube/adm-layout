@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teste de Layout</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="header-wrapper">
+                <div class="header-mobile-menu">
+                    <span class="btn-open-sidebar">
+                         Menu
+                    </span>
+                </div>
+                <div class="header-left">
+                    <div>
+                        Logo
+                    </div>
+                </div>
+                <div class="header-center">
+                    <div>Buscar</div>
+                </div>
+                <div class="header-right">
+                    <div class="">
+                        Rafael Grube
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <aside class="aside-opened">
+                <div class="sidebar-menu">
+                    <div class="sidebar-header">
+                        <div class="hidden-on-mobile">
+                            <span class="btn-toggle-sidebar"> << </span>
+                        </div>
+                        <div class="show-on-mobile">
+                            <span class="btn-close-sidebar">X</span>
+                        </div>
+                    </div>
+                    <ul class="sidebar-items">
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                        <li>sidebar</li>
+                    </ul>
+                </div>
+            </aside>
+            <div id="content">
+                <div class="container">
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                    <h2>Content</h2>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function() {
+            toggleSidebar()
+            openSidebarMobile()
+            closeSidebarMobile()
+        })
+
+        function toggleSidebar() {
+            $('.btn-toggle-sidebar').on('click', function () {
+                $('aside').toggleClass('aside-closed').toggleClass('aside-opened')
+            })
+        }
+
+        function openSidebarMobile() {
+            $('.btn-open-sidebar').on('click', function () {
+                $('aside').fadeIn("fast", function () {
+                    $(this).removeClass('aside-closed').addClass('aside-opened')
+                })
+            })
+        }
+
+        function closeSidebarMobile() {
+            $('.btn-close-sidebar').on('click', function() {
+                $('aside').fadeOut("fast", function() {
+                    $(this).removeClass('aside-opened').addClass('aside-closed')
+                })
+            })
+
+
+            if( $('aside').hasClass('aside-opened') && $(window).width() < 768){
+                $('#content').on('click', function () {
+                    $('aside').fadeOut("fast", function () {
+                        $(this).removeClass('aside-opened').addClass('aside-closed')
+                    })
+                })
+            }
+        }
+    </script>
+</body>
+</html>
